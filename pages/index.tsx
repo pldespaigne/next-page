@@ -50,11 +50,11 @@ const Home: NextPage = () => {
         <title>Resume - Pierre-Louis Despaigne</title>
       </Head>
 
-      <main ref={container} className="min-h-full w-full bg-gradient-to-br from-gray-700 via-gray-700 to-gray-800 py-16 px-32">
+      <main ref={container} className="min-h-full min-w-full bg-gradient-to-br from-gray-700 via-gray-700 to-gray-800 py-32 md:py-16 px-8 md:px-32">
 
         <section className="flex flex-col items-center gap-6">
           <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={300} height={300} />
-          <h1 className="relative text-5xl font-bold text-yellow-300 pl-4">
+          <h1 className="relative text-3xl md:text-5xl font-bold text-yellow-300 pl-4">
             Hi, I&apos;m Pierre-Louis 👋
           </h1>
           <p className="text-center text-gray-300 text-lg">
@@ -81,8 +81,8 @@ const Home: NextPage = () => {
           </a>
         </section>
 
-        <section className="mt-16 grid grid-cols-2 gap-8">
-          <h2 className="font-bold text-4xl text-gray-800 col-span-2">Experiences</h2>
+        <section className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+          <h2 className="font-bold text-4xl text-gray-800 md:col-span-2">Experiences</h2>
 
           <Card
             company="Cascade8"
@@ -130,7 +130,7 @@ const Home: NextPage = () => {
               </p>
             }
             links={[
-              <p key={0} className="text-center text-yellow-500 mx-16">
+              <p key={0} className="text-center text-yellow-500 mx-4 md:mx-16">
                 Unfortunately the repo is private,<br/>
                 <span className="text-gray-400">but I can still show my local copy during a call for example.</span>
               </p>
@@ -203,8 +203,8 @@ const Home: NextPage = () => {
 
         </section>
 
-        <section className="mt-32 grid grid-cols-4 gap-4">
-          <h2 className="font-bold text-4xl text-gray-800 col-span-4">Side Projects</h2>
+        <section className="mt-32 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
+          <h2 className="font-bold text-4xl text-gray-800 md:col-span-4">Side Projects</h2>
 
           <SmallCard title="Content-Hash">
             <p>
@@ -257,8 +257,8 @@ const Home: NextPage = () => {
           </SmallCard>
         </section>
 
-        <section className="mt-32 grid grid-cols-4 gap-8">
-          <h2 className="font-bold text-4xl text-gray-800 col-span-4">Misc.</h2>
+        <section className="mt-32 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
+          <h2 className="font-bold text-4xl text-gray-800 md:col-span-4">Misc.</h2>
           <SmallCard title="Ethers.js">
             <p>I contributed in finding, investigating and reporting bugs.</p>
             <LinkCard href="https://github.com/ethers-io/ethers.js/issues?q=is%3Aissue+author%3Apldespaigne+is%3Aclosed">
@@ -294,8 +294,8 @@ const Home: NextPage = () => {
 
         </section>
 
-        <section className="mt-32 grid grid-cols-2 gap-8">
-          <h2 className="font-bold text-4xl text-gray-800 col-span-2">Education</h2>
+        <section className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+          <h2 className="font-bold text-4xl text-gray-800 md:col-span-2">Education</h2>
           
           <div className="p-6 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 filter drop-shadow-xl text-gray-400 flex flex-col justify-between gap-6">
             <h2 className="text-xl font-semibold">
@@ -306,7 +306,7 @@ const Home: NextPage = () => {
         </section>
 
         <footer className="mt-32 flex flex-row justify-center">
-          <h2 ref={endText} className="text-gray-900 font-bold text-4xl">You reached the end 🙌</h2>
+          <h2 ref={endText} className="text-gray-900 font-bold text-4xl text-center md:text-left">You reached the end 🙌</h2>
         </footer>
       </main>
     </>
