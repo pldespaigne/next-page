@@ -49,6 +49,12 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Resume - Pierre-Louis Despaigne</title>
+        <meta name="description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix or Ample." />
+        <meta name="og:title" content="Resume - Pierre-Louis" />
+        <meta name="og:description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix or Ample." />
+        <meta name="og:image" content="https://pl.despaigne.fr/images/profile-pic.jpg" />
+        <meta name="og:type" content="website" />
+        <meta name="og:url" content="https://pl.despaigne.fr" />
       </Head>
 
       <main ref={container} className="min-h-full min-w-full bg-gradient-to-br from-gray-700 via-gray-700 to-gray-800 py-32 md:py-16 px-8 md:px-32">
