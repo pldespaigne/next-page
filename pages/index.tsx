@@ -49,6 +49,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Resume - Pierre-Louis Despaigne</title>
+        <link rel="icon" href="favicon.ico" />
         <meta name="description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix or Ample." />
         <meta property="og:title" content="Resume - Pierre-Louis" />
         <meta property="og:description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix or Ample." />
