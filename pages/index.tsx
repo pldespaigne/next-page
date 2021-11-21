@@ -1,11 +1,12 @@
 
-import { faGithub, faGoogleDrive, faNpm } from '@fortawesome/free-brands-svg-icons';
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faGoogleDrive, faLinkedin, faNpm, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGlobe, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { NextPage } from 'next';
 
 import Head from 'next/head';
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 
 import { Card } from './components/Card';
 import { Chips } from './components/Chips';
@@ -13,13 +14,43 @@ import { LinkCard } from './components/LinkCard';
 import { SmallCard } from './components/SmallCard';
 
 const Home: NextPage = () => {
+
+  const container = useRef<HTMLElement>(null);
+  const endText = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    let listener = () => {};
+
+    const init = async () => {
+      const party = await import('party-js');
+
+      listener = () => {
+        const delta = Math.round((container.current?.clientHeight ?? 0) - window.innerHeight - window.scrollY);
+        if (delta === 0) {
+          party.confetti(endText.current!, {
+            count: party.variation.range(60, 100),
+            spread: 50,
+            speed: party.variation.range(400, 800),
+          });
+        }
+      };
+
+      window.addEventListener('scroll', listener);
+    };
+    init();
+
+    return () => {
+      window.removeEventListener('scroll', listener);
+    };
+  }, []);
+
   return (
     <>
       <Head>
         <title>Resume - Pierre-Louis Despaigne</title>
       </Head>
 
-      <main className="min-h-full w-full bg-gradient-to-br from-gray-700 via-gray-700 to-gray-800 py-16 px-32">
+      <main ref={container} className="min-h-full w-full bg-gradient-to-br from-gray-700 via-gray-700 to-gray-800 py-16 px-32">
 
         <section className="flex flex-col items-center gap-6">
           <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={300} height={300} />
@@ -30,8 +61,24 @@ const Home: NextPage = () => {
             I&apos;m a freelance web(3)-developer.<br/>
             I started to look into Ethereum in 2017.<br/>
             I have since contributed to well known projects like<br/>
-            MetaMask, ENS, Ethers.js, Remix or Ampl.
+            MetaMask, ENS, Ethers.js, Remix or Ample.
           </p>
+        </section>
+
+        <section className="mt-16 flex flex-row justify-around text-gray-800">
+          <div className="text-center">
+            <FontAwesomeIcon className="text-4xl" icon={faMapMarkerAlt} />
+            <p className="text-gray-400">France</p>
+          </div>
+          <a href="https://github.com/pldespaigne" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon className="text-4xl" icon={faGithub} />
+          </a>
+          <a href="https://twitter.com/pldespaigne" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon className="text-4xl" icon={faTwitter} />
+          </a>
+          <a href="https://linkedin.com/in/pldespaigne" target="_blank" rel="noreferrer">
+            <FontAwesomeIcon className="text-4xl" icon={faLinkedin} />
+          </a>
         </section>
 
         <section className="mt-16 grid grid-cols-2 gap-8">
@@ -148,9 +195,9 @@ const Home: NextPage = () => {
               </LinkCard>,
             ]}
             chips={[
-              <Chips key={2}>TypeScript</Chips>,
-              <Chips key={3}>Ethers.js</Chips>,
-              <Chips key={4}>3Box.js</Chips>,
+              <Chips key={0}>TypeScript</Chips>,
+              <Chips key={1}>Ethers.js</Chips>,
+              <Chips key={2}>3Box.js</Chips>,
             ]}
           />
 
@@ -165,7 +212,7 @@ const Home: NextPage = () => {
               The npm package has 200,000 weekly downloads.<br/>
               It is used to encode ipfs hash into a format that can be stored by ENS resolvers.
             </p>
-            <LinkCard key={0} href="https://www.npmjs.com/package/content-hash">
+            <LinkCard href="https://www.npmjs.com/package/content-hash">
               <FontAwesomeIcon className="mr-2" icon={faNpm} />
               npm
             </LinkCard>
@@ -177,7 +224,7 @@ const Home: NextPage = () => {
               This can be useful to analyse the blockchain by yourself and offline.<br/>
               The script is also able to find back transactions sender addresses.
             </p>
-            <LinkCard key={0} href="https://github.com/pldespaigne/blk_parser">
+            <LinkCard href="https://github.com/pldespaigne/blk_parser">
               <FontAwesomeIcon className="mr-2" icon={faGithub} />
               Github
             </LinkCard>
@@ -188,11 +235,11 @@ const Home: NextPage = () => {
               Experimenting creation of graph-based programming tool in react.
             </p>
             <div className="flex flex-col gap-2">
-              <LinkCard key={0} href="https://angry-banach-72cea3.netlify.app/">
+              <LinkCard href="https://angry-banach-72cea3.netlify.app/">
                 <FontAwesomeIcon className="mr-2" icon={faGlobe} />
                 Demo 1
               </LinkCard>
-              <LinkCard key={1} href="https://yeetgraph.com/list">
+              <LinkCard href="https://yeetgraph.com/list">
                 <FontAwesomeIcon className="mr-2" icon={faGlobe} />
                 Demo 2
               </LinkCard>
@@ -203,7 +250,7 @@ const Home: NextPage = () => {
             <p>
               Experimenting around gamified 3D meetings.
             </p>
-            <LinkCard key={0} href="https://poc-astaree.web.app/">
+            <LinkCard href="https://poc-astaree.web.app/">
               <FontAwesomeIcon className="mr-2" icon={faGlobe} />
               Demo
             </LinkCard>
@@ -214,7 +261,7 @@ const Home: NextPage = () => {
           <h2 className="font-bold text-4xl text-gray-800 col-span-4">Misc.</h2>
           <SmallCard title="Ethers.js">
             <p>I contributed in finding, investigating and reporting bugs.</p>
-            <LinkCard key={0} href="https://github.com/ethers-io/ethers.js/issues?q=is%3Aissue+author%3Apldespaigne+is%3Aclosed">
+            <LinkCard href="https://github.com/ethers-io/ethers.js/issues?q=is%3Aissue+author%3Apldespaigne+is%3Aclosed">
               <FontAwesomeIcon className="mr-2" icon={faGlobe} />
               Github Issues
             </LinkCard>
@@ -226,11 +273,11 @@ const Home: NextPage = () => {
               I presentation about GraphQL to our team along with a small demo repo.
             </p>
             <div className="flex flex-col gap-2">
-              <LinkCard key={0} href="https://docs.google.com/presentation/d/1YfFIpHYU_o4eA-_SeFXzzT4kawB6yMCmCRjB_p4bvyE/edit?usp=sharing">
+              <LinkCard href="https://docs.google.com/presentation/d/1YfFIpHYU_o4eA-_SeFXzzT4kawB6yMCmCRjB_p4bvyE/edit?usp=sharing">
                 <FontAwesomeIcon className="mr-2" icon={faGoogleDrive} />
                 Presentation
               </LinkCard>
-              <LinkCard key={0} href="https://github.com/blockframes/graphql-demo">
+              <LinkCard href="https://github.com/blockframes/graphql-demo">
                 <FontAwesomeIcon className="mr-2" icon={faGithub} />
                 Demo Repo
               </LinkCard>
@@ -238,8 +285,8 @@ const Home: NextPage = () => {
           </SmallCard>
 
           <SmallCard title="Resume">
-            <p>This site is made with Next.js and tailwind.css</p>
-            <LinkCard key={0} href="https://github.com/pldespaigne/next-page">
+            <p>This site is made with Next.js and Tailwind.css</p>
+            <LinkCard href="https://github.com/pldespaigne/next-page">
               <FontAwesomeIcon className="mr-2" icon={faGithub} />
               Github
             </LinkCard>
@@ -258,6 +305,9 @@ const Home: NextPage = () => {
           </div>
         </section>
 
+        <footer className="mt-32 flex flex-row justify-center">
+          <h2 ref={endText} className="text-gray-900 font-bold text-4xl">You reached the end 🙌</h2>
+        </footer>
       </main>
     </>
   )
