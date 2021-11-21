@@ -9,10 +9,10 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
-import { Card } from './components/Card';
-import { Chips } from './components/Chips';
-import { LinkCard } from './components/LinkCard';
-import { SmallCard } from './components/SmallCard';
+import Card from './components/Card';
+import Chips from './components/Chips';
+import LinkCard from './components/LinkCard';
+import SmallCard from './components/SmallCard';
 
 const Home: NextPage = () => {
 

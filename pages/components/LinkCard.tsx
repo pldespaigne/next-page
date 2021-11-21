@@ -6,7 +6,7 @@ interface LinkCardProps {
   href: string;
 };
 
-export const LinkCard: FunctionComponent<LinkCardProps> = ({ href, children }) => {
+const LinkCard: FunctionComponent<LinkCardProps> = ({ href, children }) => {
 
   return(
     <motion.a
@@ -21,3 +21,5 @@ export const LinkCard: FunctionComponent<LinkCardProps> = ({ href, children }) =
     </motion.a>
   );
 };
+
+export default LinkCard;

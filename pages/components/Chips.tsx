@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 
 interface ChipsProps {};
 
-export const Chips: FunctionComponent<ChipsProps> = ({ children }) => {
+const Chips: FunctionComponent<ChipsProps> = ({ children }) => {
 
   return(
     <span
@@ -13,3 +13,5 @@ export const Chips: FunctionComponent<ChipsProps> = ({ children }) => {
     </span>
   );
 };
+
+export default Chips;

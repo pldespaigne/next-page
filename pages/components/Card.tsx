@@ -11,7 +11,7 @@ interface CardProps {
   chips: ReactNode[];
 };
 
-export const Card: FunctionComponent<CardProps> = ({ company, role, duration, body, links, chips }) => {
+const Card: FunctionComponent<CardProps> = ({ company, role, duration, body, links, chips }) => {
 
   return(
     <div className="p-6 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 filter drop-shadow-xl text-gray-400 flex flex-col justify-between gap-6">
@@ -26,12 +26,14 @@ export const Card: FunctionComponent<CardProps> = ({ company, role, duration, bo
       <div>{body}</div>
 
       <div className="flex flex-row flex-wrap justify-center gap-4">
-        {links.map(link => link)}
+        {links?.map(link => link)}
       </div>
 
       <div className="flex flex-row flex-wrap justify-center gap-2">
-        {chips.map(chip => chip)}
+        {chips?.map(chip => chip)}
       </div>
     </div>
   );
 };
+
+export default Card;
