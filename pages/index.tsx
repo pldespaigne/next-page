@@ -2,6 +2,7 @@
 import { faGithub, faGoogleDrive, faLinkedin, faNpm, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { motion } from 'framer-motion';
 import type { NextPage } from 'next';
 
 import Head from 'next/head';
@@ -53,7 +54,13 @@ const Home: NextPage = () => {
       <main ref={container} className="min-h-full min-w-full bg-gradient-to-br from-gray-700 via-gray-700 to-gray-800 py-32 md:py-16 px-8 md:px-32">
 
         <section className="flex flex-col items-center gap-6">
-          <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={300} height={300} />
+          <div className="relative">
+            <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={300} height={300} />
+            <div className="absolute bottom-0 right-0 text-center text-gray-400">
+              <FontAwesomeIcon className="text-xl" icon={faMapMarkerAlt} />
+              <p className="">France</p>
+            </div>
+          </div>
           <h1 className="relative text-3xl md:text-5xl font-bold text-yellow-300 pl-4">
             Hi, I&apos;m Pierre-Louis 👋
           </h1>
@@ -66,19 +73,36 @@ const Home: NextPage = () => {
         </section>
 
         <section className="mt-16 flex flex-row justify-around text-gray-800">
-          <div className="text-center">
-            <FontAwesomeIcon className="text-4xl" icon={faMapMarkerAlt} />
-            <p className="text-gray-400">France</p>
-          </div>
-          <a href="https://github.com/pldespaigne" target="_blank" rel="noreferrer">
+          <motion.a
+            href="https://github.com/pldespaigne"
+            target="_blank"
+            rel="noreferrer"
+            className="border border-gray-800 p-2 rounded-md"
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.1 }}
+          >
             <FontAwesomeIcon className="text-4xl" icon={faGithub} />
-          </a>
-          <a href="https://twitter.com/pldespaigne" target="_blank" rel="noreferrer">
+          </motion.a>
+          <motion.a
+            href="https://twitter.com/pldespaigne"
+            target="_blank"
+            rel="noreferrer"
+            className="border border-gray-800 p-2 rounded-md"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <FontAwesomeIcon className="text-4xl" icon={faTwitter} />
-          </a>
-          <a href="https://linkedin.com/in/pldespaigne" target="_blank" rel="noreferrer">
+          </motion.a>
+          <motion.a
+            href="https://linkedin.com/in/pldespaigne"
+            target="_blank"
+            rel="noreferrer"
+            className="border border-gray-800 p-2 rounded-md"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
             <FontAwesomeIcon className="text-4xl" icon={faLinkedin} />
-          </a>
+          </motion.a>
         </section>
 
         <section className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">

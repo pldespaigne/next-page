@@ -1,5 +1,6 @@
 
 import React, { FunctionComponent } from 'react';
+import { motion } from 'framer-motion';
 
 interface LinkCardProps {
   href: string;
@@ -8,13 +9,15 @@ interface LinkCardProps {
 export const LinkCard: FunctionComponent<LinkCardProps> = ({ href, children }) => {
 
   return(
-    <a
+    <motion.a
       href={href}
       target="_blank"
       rel="noreferrer"
+      whileTap={{ scale: 0.9 }}
+      whileHover={{ scale: 1.1 }}
       className="cursor-pointer px-4 py-2 border border-yellow-800 rounded-md text-yellow-500"
     >
       {children}
-    </a>
+    </motion.a>
   );
 };
