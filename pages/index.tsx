@@ -64,7 +64,7 @@ const Home: NextPage = () => {
           <div className="relative">
             <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={300} height={300} />
             <div className="absolute bottom-0 right-0 text-center text-gray-400">
-              <FontAwesomeIcon className="text-xl" icon={faMapMarkerAlt} />
+              <FontAwesomeIcon className="text-xl inline w-4" icon={faMapMarkerAlt} />
               <p className="">France</p>
             </div>
           </div>
@@ -84,31 +84,31 @@ const Home: NextPage = () => {
             href="https://github.com/pldespaigne"
             target="_blank"
             rel="noreferrer"
-            className="border border-gray-800 p-2 rounded-md"
+            className="border border-gray-800 px-2 py-1 rounded-md"
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.1 }}
           >
-            <FontAwesomeIcon className="text-4xl" icon={faGithub} />
+            <FontAwesomeIcon className="text-4xl inline w-10 pt-0.5" icon={faGithub} />
           </motion.a>
           <motion.a
             href="https://twitter.com/pldespaigne"
             target="_blank"
             rel="noreferrer"
-            className="border border-gray-800 p-2 rounded-md"
+            className="border border-gray-800 px-2 py-1 rounded-md"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <FontAwesomeIcon className="text-4xl" icon={faTwitter} />
+            <FontAwesomeIcon className="text-4xl inline w-10 pt-1" icon={faTwitter} />
           </motion.a>
           <motion.a
             href="https://linkedin.com/in/pldespaigne"
             target="_blank"
             rel="noreferrer"
-            className="border border-gray-800 p-2 rounded-md"
+            className="border border-gray-800 px-2 py-1 rounded-md"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
-            <FontAwesomeIcon className="text-4xl" icon={faLinkedin} />
+            <FontAwesomeIcon className="text-4xl inline w-10" icon={faLinkedin} />
           </motion.a>
         </section>
 
@@ -130,15 +130,15 @@ const Home: NextPage = () => {
             }
             links={[
               <LinkCard key={0} href="https://github.com/blockframes/blockframes/tree/5c739627b5358cfc108e9149ade6548a7d92e433/libs/ethers/src/lib">
-                <FontAwesomeIcon className="mr-2" icon={faGithub} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
                 dApp Front-end
               </LinkCard>,
               <LinkCard key={1} href="https://github.com/blockframes/blockframes/tree/5c739627b5358cfc108e9149ade6548a7d92e433/smart-contracts/sol">
-                <FontAwesomeIcon className="mr-2" icon={faGithub} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
                 Smart-Contracts
               </LinkCard>,
               <LinkCard key={2} href="https://www.filmseriesnft.com/">
-                <FontAwesomeIcon className="mr-2" icon={faGlobe} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
                 NFT VOD
               </LinkCard>,
             ]}
@@ -187,7 +187,7 @@ const Home: NextPage = () => {
             }
             links={[
               <LinkCard key={0} href="https://github.com/MetaMask/metamask-extension/pulls?q=is%3Apr+author%3Apldespaigne+is%3Aclosed">
-                <FontAwesomeIcon className="mr-2" icon={faGithub} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
                 Pull Requests
               </LinkCard>,
             ]}
@@ -209,19 +209,19 @@ const Home: NextPage = () => {
             }
             links={[
               <LinkCard key={0} href="https://github.com/ethereum/remix-ide/pulls?q=is%3Apr+author%3Apldespaigne+is%3Aclosed">
-                <FontAwesomeIcon className="mr-2" icon={faGithub} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
                 Integration
               </LinkCard>,
               <LinkCard key={1} href="https://github.com/pldespaigne/remix-debug-plugin">
-                <FontAwesomeIcon className="mr-2" icon={faGithub} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
                 Debug Plugin
               </LinkCard>,
               <LinkCard key={2} href="https://github.com/pldespaigne/remix-3box-plugin">
-                <FontAwesomeIcon className="mr-2" icon={faGithub} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
                 3Box Plugin
               </LinkCard>,
               <LinkCard key={3} href="https://remix.ethereum.org">
-                <FontAwesomeIcon className="mr-2" icon={faGlobe} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
                 Remix
               </LinkCard>,
             ]}
@@ -244,7 +244,7 @@ const Home: NextPage = () => {
               It is used to encode ipfs hash into a format that can be stored by ENS resolvers.
             </p>
             <LinkCard href="https://www.npmjs.com/package/content-hash">
-              <FontAwesomeIcon className="mr-2" icon={faNpm} />
+              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faNpm} />
               npm
             </LinkCard>
           </SmallCard>
@@ -256,7 +256,7 @@ const Home: NextPage = () => {
               The script is also able to find back transactions sender addresses.
             </p>
             <LinkCard href="https://github.com/pldespaigne/blk_parser">
-              <FontAwesomeIcon className="mr-2" icon={faGithub} />
+              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
               Github
             </LinkCard>
           </SmallCard>
@@ -267,11 +267,11 @@ const Home: NextPage = () => {
             </p>
             <div className="flex flex-col gap-2">
               <LinkCard href="https://angry-banach-72cea3.netlify.app/">
-                <FontAwesomeIcon className="mr-2" icon={faGlobe} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
                 Demo 1
               </LinkCard>
               <LinkCard href="https://yeetgraph.com/list">
-                <FontAwesomeIcon className="mr-2" icon={faGlobe} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
                 Demo 2
               </LinkCard>
             </div>
@@ -282,7 +282,7 @@ const Home: NextPage = () => {
               Experimenting around gamified 3D meetings.
             </p>
             <LinkCard href="https://poc-astaree.web.app/">
-              <FontAwesomeIcon className="mr-2" icon={faGlobe} />
+              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
               Demo
             </LinkCard>
           </SmallCard>
@@ -293,7 +293,7 @@ const Home: NextPage = () => {
           <SmallCard title="Ethers.js">
             <p>I contributed in finding, investigating and reporting bugs.</p>
             <LinkCard href="https://github.com/ethers-io/ethers.js/issues?q=is%3Aissue+author%3Apldespaigne+is%3Aclosed">
-              <FontAwesomeIcon className="mr-2" icon={faGlobe} />
+              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
               Github Issues
             </LinkCard>
           </SmallCard>
@@ -305,11 +305,11 @@ const Home: NextPage = () => {
             </p>
             <div className="flex flex-col gap-2">
               <LinkCard href="https://docs.google.com/presentation/d/1YfFIpHYU_o4eA-_SeFXzzT4kawB6yMCmCRjB_p4bvyE/edit?usp=sharing">
-                <FontAwesomeIcon className="mr-2" icon={faGoogleDrive} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGoogleDrive} />
                 Presentation
               </LinkCard>
               <LinkCard href="https://github.com/blockframes/graphql-demo">
-                <FontAwesomeIcon className="mr-2" icon={faGithub} />
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
                 Demo Repo
               </LinkCard>
             </div>
@@ -318,7 +318,7 @@ const Home: NextPage = () => {
           <SmallCard title="Resume">
             <p>This site is made with Next.js and Tailwind.css</p>
             <LinkCard href="https://github.com/pldespaigne/next-page">
-              <FontAwesomeIcon className="mr-2" icon={faGithub} />
+              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
               Github
             </LinkCard>
           </SmallCard>
