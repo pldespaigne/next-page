@@ -56,6 +56,11 @@ const Home: NextPage = () => {
         <meta property="og:image" content="https://pl.despaigne.fr/images/profile-pic.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://pl.despaigne.fr" />
+
+        
+        {/* <!-- EZditor Script --> */}
+        <script id="ezditor-script" data-site-id="0gccPcD48dNnOzYmZbMd" src="https://script-ezditor.firebaseapp.com/main.js" defer></script>
+
       </Head>
 
       <main ref={container} className="min-h-full min-w-full bg-gradient-to-br from-gray-700 via-gray-700 to-gray-800 py-32 md:py-16 px-8 md:px-32">
