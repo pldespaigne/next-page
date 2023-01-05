@@ -50,17 +50,24 @@ const Home: NextPage = () => {
       <Head>
         <title>Resume - Pierre-Louis Despaigne</title>
         <link rel="icon" href="favicon.ico" />
-        <meta name="description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix or Ample." />
-        <meta property="og:title" content="Resume - Pierre-Louis" />
-        <meta property="og:description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix or Ample." />
-        <meta property="og:image" content="https://pl.despaigne.fr/images/profile-pic.jpg" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://pl.despaigne.fr" />
-
         
-        {/* <!-- EZditor Script --> */}
-        <script id="ezditor-script" data-site-id="0gccPcD48dNnOzYmZbMd" src="https://script-ezditor.firebaseapp.com/main.js" defer></script>
+        <meta name="description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix, Ample or Autonomy." />
 
+        <meta property="og:url" content="https://pl.despaigne.fr" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Hi 👋 I'm Pierre-Louis" />
+        <meta property="og:image" content="https://pl.despaigne.fr/images/profile-pic.jpg" />
+        <meta property="og:image:alt" content="A picture of me." />
+        <meta property="og:description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix, Ample or Autonomy." />
+        <meta property="og:site_name" content="Resume" />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@pldespaigne" />
+        <meta name="twitter:url" content="https://pl.despaigne.fr" />
+        <meta name="twitter:title" content="Hi 👋 I'm Pierre-Louis" />
+        <meta name="twitter:description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix, Ample or Autonomy." />
+        <meta name="twitter:image" content="https://pl.despaigne.fr/images/profile-pic.jpg" />
+        <meta name="twitter:image:alt" content="A picture of me." />
       </Head>
 
       <main ref={container} className="min-h-full min-w-full bg-gradient-to-br from-gray-700 via-gray-700 to-gray-800 py-32 md:py-16 px-8 md:px-32">
@@ -80,7 +87,7 @@ const Home: NextPage = () => {
             I&apos;m a freelance web(3)-developer.<br/>
             I started to look into Ethereum in 2017.<br/>
             I have since contributed to well known projects like<br/>
-            MetaMask, ENS, Ethers.js, Remix or Ample.
+            MetaMask, ENS, Ethers.js, Remix, Ample or Autonomy.
           </p>
         </section>
 
@@ -121,16 +128,54 @@ const Home: NextPage = () => {
           <h2 className="font-bold text-4xl text-gray-800 md:col-span-2">Experiences</h2>
 
           <Card
+            company="Autonomy Network"
+            role="Senior Full-Stack Developer"
+            duration="Feb 2022 - Jan 2023 (11 months)"
+            body={
+              <p>
+                Autonomy is a blockchain automation protocol.
+                I joined this fully remote and distributed team to build new apps in order to demonstrate use-cases for the protocol.
+                I was in charge of creating the front-end and backend of the apps along with two other more junior devs.
+                This included planning the development and assigning tasks to my team (3 people including me), making code review, and coding.
+                On the technical side I worked on front-end ui, redux store, data fetching (api, the graph, smart-contract). I also did some backend: creating a subgraph (the graph) and creating an api to link Twitter accounts to eth addresses.
+                Finally I wrote some smart-contracts deploy scripts and tests using Hardhat (I did not wrote the smart-contracts though).
+              </p>
+            }
+            links={[
+              <LinkCard key={0} href="http://auto-hedge-v2.vercel.app/">
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
+                Auto-Hedge
+              </LinkCard>,
+              <LinkCard key={1} href="http://auto-station-v2.vercel.app/">
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
+                Auto-Station
+              </LinkCard>,
+              <LinkCard key={2} href="https://meta-dungeon-app.vercel.app/">
+                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
+                Meta-Dungeon
+              </LinkCard>,
+            ]}
+            chips={[
+              <Chips key={0}>Next.js</Chips>,
+              <Chips key={1}>Tailwind.css</Chips>,
+              <Chips key={2}>TypeScript</Chips>,
+              <Chips key={3}>Ethers.js</Chips>,
+              <Chips key={4}>The Graph</Chips>,
+              <Chips key={5}>HardHat</Chips>,
+            ]}
+          />
+
+          <Card
             company="Cascade8"
             role="Senior Full-Stack Developer"
-            duration="2019 - Now (2,5 years)"
+            duration="mid 2019 - Jan 2022 (2,5 years)"
             body={
               <p>
                 I joined this remote team at creation, we build regular web-apps. I worked on front, back, ops, features and architecture design.
                 With the team growing I also started to manage some of the new developers.<br/>
                 We also created a re-deployable gas-less smart-wallet to onboard non-tech user,
                 and a &quot;Netflix NFT&quot; where you can buy a movie&apos;s token to watch it,
-                as long as you hold the token, like a web3 DVD. Unfortunately non of that made it to mainnet.
+                as long as you hold the token, like a web3 DVD.
               </p>
             }
             links={[
