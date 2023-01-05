@@ -1,9 +1,10 @@
 
-import React, { FunctionComponent } from 'react';
 import { motion } from 'framer-motion';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 interface LinkCardProps {
   href: string;
+  children?: ReactNode;
 };
 
 const LinkCard: FunctionComponent<LinkCardProps> = ({ href, children }) => {

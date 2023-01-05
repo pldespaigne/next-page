@@ -1,8 +1,9 @@
 
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 interface SmallCardProps {
   title: string;
+  children?: ReactNode;
 };
 
 const SmallCard: FunctionComponent<SmallCardProps> = ({ title, children }) => {

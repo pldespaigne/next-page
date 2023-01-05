@@ -1,7 +1,9 @@
 
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
-interface ChipsProps {};
+interface ChipsProps {
+  children?: ReactNode;
+};
 
 const Chips: FunctionComponent<ChipsProps> = ({ children }) => {
 

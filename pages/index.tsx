@@ -1,18 +1,18 @@
 
-import { faGithub, faGoogleDrive, faLinkedin, faNpm, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faGlobe, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { motion } from 'framer-motion';
-import type { NextPage } from 'next';
-
 import Head from 'next/head';
 import Image from 'next/image';
+import type { NextPage } from 'next';
+import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGlobe, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faGoogleDrive, faLinkedin, faNpm, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import Card from './components/Card';
 import Chips from './components/Chips';
 import LinkCard from './components/LinkCard';
 import SmallCard from './components/SmallCard';
+
 
 const Home: NextPage = () => {
 
