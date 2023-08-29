@@ -16,7 +16,7 @@ const LinkCard: FunctionComponent<LinkCardProps> = ({ href, children }) => {
       rel="noreferrer"
       whileTap={{ scale: 0.9 }}
       whileHover={{ scale: 1.1 }}
-      className="cursor-pointer px-4 py-2 border border-yellow-800 rounded-md text-yellow-500"
+      className="cursor-pointer px-4 py-2 border border-yellow-800 rounded-md text-yellow-500 flex gap-2 items-center justify-center"
     >
       {children}
     </motion.a>

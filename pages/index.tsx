@@ -4,19 +4,22 @@ import Image from 'next/image';
 import type { NextPage } from 'next';
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faGlobe, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faGoogleDrive, faLinkedin, faNpm, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import Card from './components/Card';
 import Chips from './components/Chips';
 import LinkCard from './components/LinkCard';
 import SmallCard from './components/SmallCard';
+import { GameOfLife } from './components/GameOfLife';
 
 
 const Home: NextPage = () => {
 
   const container = useRef<HTMLElement>(null);
+  const scrollTarget = useRef<HTMLElement>(null);
   const endText = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -45,91 +48,182 @@ const Home: NextPage = () => {
     };
   }, []);
 
+
+  const handleScroll = () => {
+    if (!scrollTarget.current) return;
+    scrollTarget.current.scrollIntoView();
+  };
+
+
   return (
     <>
       <Head>
-        <title>Resume - Pierre-Louis Despaigne</title>
+        <title>Resume - Pierre Despaigne</title>
         <link rel="icon" href="favicon.ico" />
         
-        <meta name="description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix, Ample or Autonomy." />
+        <meta name="description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Kwenta (SNX), Ethers.js, Remix, Ample or Autonomy. I'm also building in public a smart-contract analysis app called Bytegraph." />
 
         <meta property="og:url" content="https://pl.despaigne.fr" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Hi 👋 I'm Pierre-Louis" />
+        <meta property="og:title" content="Hi 👋 I'm Pierre" />
         <meta property="og:image" content="https://pl.despaigne.fr/images/profile-pic.jpg" />
         <meta property="og:image:alt" content="A picture of me." />
-        <meta property="og:description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix, Ample or Autonomy." />
+        <meta property="og:description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Kwenta (SNX), Ethers.js, Remix, Ample or Autonomy. I'm also building in public a smart-contract analysis app called Bytegraph." />
         <meta property="og:site_name" content="Resume" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@pldespaigne" />
         <meta name="twitter:url" content="https://pl.despaigne.fr" />
-        <meta name="twitter:title" content="Hi 👋 I'm Pierre-Louis" />
-        <meta name="twitter:description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Ethers.js, Remix, Ample or Autonomy." />
+        <meta name="twitter:title" content="Hi 👋 I'm Pierre" />
+        <meta name="twitter:description" content="I'm a freelance web(3)-developer. I started to look into Ethereum in 2017. I have since contributed to well known projects like MetaMask, ENS, Kwenta (SNX), Ethers.js, Remix, Ample or Autonomy. I'm also building in public a smart-contract analysis app called Bytegraph." />
         <meta name="twitter:image" content="https://pl.despaigne.fr/images/profile-pic.jpg" />
         <meta name="twitter:image:alt" content="A picture of me." />
       </Head>
 
-      <main ref={container} className="min-h-full min-w-full bg-gradient-to-br from-gray-700 via-gray-700 to-gray-800 py-32 md:py-16 px-8 md:px-32">
 
-        <section className="flex flex-col items-center gap-6">
-          <div className="relative">
-            <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={300} height={300} />
-            <div className="absolute bottom-0 right-0 text-center text-gray-400">
-              <FontAwesomeIcon className="text-xl inline w-4" icon={faMapMarkerAlt} />
-              <p className="">France</p>
+
+      <main ref={container} className="relative min-h-full min-w-full bg-gradient-to-br from-slate-700 to-slate-800 pb-32 md:pb-16">
+
+        <GameOfLife />
+
+        <section className="relative h-screen flex md:items-center md:justify-center">
+
+          <div className="flex flex-col items-center w-full md:w-auto md:flex-row gap-8 md:backdrop-blur-sm md:border md:border-t-slate-600 md:border-l-slate-600 md:border-b-slate-700 md:border-r-slate-700 md:rounded-xl px-4 md:px-16 pt-4 md:py-10 md:mx-4 md:shadow-2xl">
+            <div className="relative">
+              <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={300} height={300} />
+              <div className="absolute z-0 bottom-0 left-0 text-center text-slate-400">
+                <FontAwesomeIcon className="text-xl inline w-4" icon={faMapMarkerAlt} />
+                <p className="">France</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-between items-center md:items-start gap-4">
+              <h1 className="text-3xl lg:text-5xl font-bold text-yellow-300">
+                <span className="text-glow">Hi, I&apos;m Pierre</span> 👋
+              </h1>
+
+              <p className="text-slate-300 text-center md:text-left lg:text-lg">
+                I&apos;m a <span className="text-slate-50">full-stack</span> web3 developer.<br/>
+                I started to look into Ethereum in <span className="text-slate-50">2017</span>.<br/>
+                I have since contributed to well known projects like<br/>
+                <span className="text-slate-50">MetaMask</span>,&nbsp;
+                <span className="text-slate-50">ENS</span>,&nbsp;
+                <span className="text-slate-50">Kwenta (SNX)</span>,&nbsp;
+                <span className="text-slate-50">Ethers.js</span>,&nbsp;
+                <span className="text-slate-50">Remix</span>,&nbsp;
+                <span className="text-slate-50">Ample</span> or&nbsp;
+                <span className="text-slate-50">Autonomy</span>.<br/>
+                I&apos;m also building in public a smart-contract analysis app called <a className="text-slate-50 underline" href="https://bytegraph.xyz" target="_blank" rel="noreferrer">Bytegraph</a>.
+              </p>
+
+              <div className="flex gap-3 text-yellow-500">
+                <motion.a
+                  href="https://github.com/pldespaigne"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="border border-yellow-600 flex p-2 rounded-md shadow-lg"
+                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <FontAwesomeIcon icon={faGithub} size="xl" />
+                </motion.a>
+                <motion.a
+                  href="https://twitter.com/pldespaigne"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="border border-yellow-600 flex p-2 rounded-md shadow-lg"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <FontAwesomeIcon icon={faTwitter} size="xl" />
+                </motion.a>
+                <motion.a
+                  href="https://linkedin.com/in/pldespaigne"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="border border-yellow-600 flex p-2 rounded-md shadow-lg"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <FontAwesomeIcon icon={faLinkedin} size="xl" />
+                </motion.a>
+                {/* <motion.a
+                  // TODO
+                  className="border border-yellow-600 flex p-2 rounded-md shadow-lg"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <FontAwesomeIcon icon={faFilePdf} size="xl" />
+                </motion.a> */}
+              </div>
             </div>
           </div>
-          <h1 className="relative text-3xl md:text-5xl font-bold text-yellow-300 pl-4">
-            Hi, I&apos;m Pierre-Louis 👋
-          </h1>
-          <p className="text-center text-gray-300 text-lg">
-            I&apos;m a freelance web(3)-developer.<br/>
-            I started to look into Ethereum in 2017.<br/>
-            I have since contributed to well known projects like<br/>
-            MetaMask, ENS, Ethers.js, Remix, Ample or Autonomy.
-          </p>
+
+          <div className="absolute z-20 bottom-0 w-full flex items-center justify-center pointer-events-none">
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.1 }}
+              animate={{ y: -10 }}
+              onClick={() => handleScroll()}
+              transition={{ ease: 'easeOut', duration: 1.2, repeat: Infinity, repeatType: 'mirror' }}
+              className="pointer-events-auto border border-yellow-600 rounded-full py-3 px-1.5 text-yellow-500 bg-yellow-300/20 md:bg-transparent"
+            >
+              <FontAwesomeIcon icon={faChevronDown} size="xl" />
+            </motion.button>
+          </div>
+
+          
         </section>
 
-        <section className="mt-16 flex flex-row justify-around text-gray-800">
-          <motion.a
-            href="https://github.com/pldespaigne"
-            target="_blank"
-            rel="noreferrer"
-            className="border border-gray-800 px-2 py-1 rounded-md"
-            whileTap={{ scale: 0.9 }}
-            whileHover={{ scale: 1.1 }}
-          >
-            <FontAwesomeIcon className="text-4xl inline w-10 pt-0.5" icon={faGithub} />
-          </motion.a>
-          <motion.a
-            href="https://twitter.com/pldespaigne"
-            target="_blank"
-            rel="noreferrer"
-            className="border border-gray-800 px-2 py-1 rounded-md"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <FontAwesomeIcon className="text-4xl inline w-10 pt-1" icon={faTwitter} />
-          </motion.a>
-          <motion.a
-            href="https://linkedin.com/in/pldespaigne"
-            target="_blank"
-            rel="noreferrer"
-            className="border border-gray-800 px-2 py-1 rounded-md"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <FontAwesomeIcon className="text-4xl inline w-10" icon={faLinkedin} />
-          </motion.a>
-        </section>
+        
 
-        <section className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-          <h2 className="font-bold text-4xl text-gray-800 md:col-span-2">Experiences</h2>
+        <section ref={scrollTarget} className="pt-16 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 px-8 md:px-32">
+          <h2 className="z-0 font-bold text-4xl text-slate-900 md:col-span-2 underline underline-offset-8 decoration-1 decoration-yellow-600">Work</h2>
+
+          <Card
+            company="Cascade8"
+            role="Senior Full-Stack Developer (Full time)"
+            duration={<>mid 2019 - Jan 2022 (2,5 years) &<br/>Feb 2023 - now (7 months)</>}
+            body={
+              <p>
+                I joined this remote team at creation, we built regular web2 apps. I worked on front, back, ops, features and architecture design.
+                With the team growing I also started to manage some of the new developers.<br/><br/>
+                We also created a re-deployable gas-less smart-wallet to onboard non-tech user,
+                and a &quot;Netflix NFT&quot; app where you can buy a movie&apos;s token to watch it,
+                as long as you hold the token, like a web3 DVD.<br/>
+                Unfortunately non of the web3 product made it into production as the company pivoted away from web3.
+              </p>
+            }
+            links={[
+              <LinkCard key={0} href="https://github.com/blockframes/blockframes/tree/5c739627b5358cfc108e9149ade6548a7d92e433/libs/ethers/src/lib">
+                <FontAwesomeIcon icon={faGithub} />
+                dApp Front-end
+              </LinkCard>,
+              <LinkCard key={1} href="https://github.com/blockframes/blockframes/tree/5c739627b5358cfc108e9149ade6548a7d92e433/smart-contracts/sol">
+                <FontAwesomeIcon icon={faGithub} />
+                Smart-Contracts
+              </LinkCard>,
+              <LinkCard key={2} href="https://www.filmseriesnft.com">
+                <FontAwesomeIcon icon={faGlobe} />
+                NFT VOD
+              </LinkCard>,
+              <LinkCard key={2} href="https://www.archipelmarket.com/">
+              <FontAwesomeIcon icon={faGlobe} />
+                Main web2 app
+              </LinkCard>,
+            ]}
+            chips={[
+              <Chips key={0}>Angular</Chips>,
+              <Chips key={1}>Firebase & GCP</Chips>,
+              <Chips key={2}>TypeScript</Chips>,
+              <Chips key={3}>Ethers.js</Chips>,
+              <Chips key={4}>Solidity</Chips>,
+            ]}
+          />
 
           <Card
             company="Autonomy Network"
-            role="Senior Full-Stack Developer"
+            role="Senior Full-Stack Developer (Full time)"
             duration="Feb 2022 - Jan 2023 (11 months)"
             body={
               <p>
@@ -143,15 +237,15 @@ const Home: NextPage = () => {
             }
             links={[
               <LinkCard key={0} href="http://auto-hedge-v2.vercel.app/">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
+                <FontAwesomeIcon icon={faGlobe} />
                 Auto-Hedge
               </LinkCard>,
               <LinkCard key={1} href="http://auto-station-v2.vercel.app/">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
+                <FontAwesomeIcon icon={faGlobe} />
                 Auto-Station
               </LinkCard>,
               <LinkCard key={2} href="https://meta-dungeon-app.vercel.app/">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
+                <FontAwesomeIcon icon={faGlobe} />
                 Meta-Dungeon
               </LinkCard>,
             ]}
@@ -166,38 +260,25 @@ const Home: NextPage = () => {
           />
 
           <Card
-            company="Cascade8"
-            role="Senior Full-Stack Developer"
-            duration="mid 2019 - Jan 2022 (2,5 years)"
+            company="Kwenta by Synthetix"
+            role="Front-end features implementation (Contractor)"
+            duration="Feb 2023 - now"
             body={
               <p>
-                I joined this remote team at creation, we build regular web-apps. I worked on front, back, ops, features and architecture design.
-                With the team growing I also started to manage some of the new developers.<br/>
-                We also created a re-deployable gas-less smart-wallet to onboard non-tech user,
-                and a &quot;Netflix NFT&quot; where you can buy a movie&apos;s token to watch it,
-                as long as you hold the token, like a web3 DVD.
+                Implementing various front-end features assigned to me via GitHub issues.
               </p>
             }
             links={[
-              <LinkCard key={0} href="https://github.com/blockframes/blockframes/tree/5c739627b5358cfc108e9149ade6548a7d92e433/libs/ethers/src/lib">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
-                dApp Front-end
-              </LinkCard>,
-              <LinkCard key={1} href="https://github.com/blockframes/blockframes/tree/5c739627b5358cfc108e9149ade6548a7d92e433/smart-contracts/sol">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
-                Smart-Contracts
-              </LinkCard>,
-              <LinkCard key={2} href="https://www.filmseriesnft.com/">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
-                NFT VOD
+              <LinkCard key={0} href="https://github.com/Kwenta/kwenta/pulls?q=is%3Apr+is%3Aclosed+author%3Apldespaigne">
+                <FontAwesomeIcon icon={faGithub} />
+                Pull Requests
               </LinkCard>,
             ]}
             chips={[
-              <Chips key={0}>Angular</Chips>,
-              <Chips key={1}>Firebase</Chips>,
-              <Chips key={2}>TypeScript</Chips>,
-              <Chips key={3}>Ethers.js</Chips>,
-              <Chips key={4}>Solidity</Chips>,
+              <Chips key={0}>TypeScript</Chips>,
+              <Chips key={1}>React</Chips>,
+              <Chips key={2}>Redux</Chips>,
+              <Chips key={3}>Styled Component</Chips>,
             ]}
           />
 
@@ -213,7 +294,7 @@ const Home: NextPage = () => {
             links={[
               <p key={0} className="text-center text-yellow-500 mx-4 md:mx-16">
                 Unfortunately the repo is private,<br/>
-                <span className="text-gray-400">but I can still show my local copy during a call for example.</span>
+                <span className="text-slate-400">but I can still show my local copy during a call for example.</span>
               </p>
             ]}
             chips={[
@@ -232,12 +313,12 @@ const Home: NextPage = () => {
               <p>
                 Implementation of ENS address resolving through MetaMask.<br/>
                 In fact if you have MetaMask installed you can just type an <code>.eth</code> address in your browser to see my code at work.<br/>
-                Try it with <a href="https://matoken.eth" target="_blank" rel="noreferrer" className="underline">https://matoken.eth</a> (no need to unlock MetaMask, but mainnet should be selected).
+                Try it with <a href="https://vitalik.eth" target="_blank" rel="noreferrer" className="underline">https://vitalik.eth</a> (no need to unlock MetaMask, but <span className="text-slate-300">mainnet should be selected</span>).
               </p>
             }
             links={[
               <LinkCard key={0} href="https://github.com/MetaMask/metamask-extension/pulls?q=is%3Apr+author%3Apldespaigne+is%3Aclosed">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
+                <FontAwesomeIcon icon={faGithub} />
                 Pull Requests
               </LinkCard>,
             ]}
@@ -259,19 +340,19 @@ const Home: NextPage = () => {
             }
             links={[
               <LinkCard key={0} href="https://github.com/ethereum/remix-ide/pulls?q=is%3Apr+author%3Apldespaigne+is%3Aclosed">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
+                <FontAwesomeIcon icon={faGithub} />
                 Integration
               </LinkCard>,
               <LinkCard key={1} href="https://github.com/pldespaigne/remix-debug-plugin">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
+                <FontAwesomeIcon icon={faGithub} />
                 Debug Plugin
               </LinkCard>,
               <LinkCard key={2} href="https://github.com/pldespaigne/remix-3box-plugin">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
+                <FontAwesomeIcon icon={faGithub} />
                 3Box Plugin
               </LinkCard>,
               <LinkCard key={3} href="https://remix.ethereum.org">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
+                <FontAwesomeIcon icon={faGlobe} />
                 Remix
               </LinkCard>,
             ]}
@@ -284,17 +365,28 @@ const Home: NextPage = () => {
 
         </section>
 
-        <section className="mt-32 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
-          <h2 className="font-bold text-4xl text-gray-800 md:col-span-4">Side Projects</h2>
+        <section className="mt-32 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 px-8 md:px-32">
+          <h2 className="z-0 font-bold text-4xl text-slate-900 md:col-span-4 underline underline-offset-8 decoration-1 decoration-yellow-600">Side Projects</h2>
+
+          <SmallCard title="Bytegraph">
+            <p>
+              An app that can analyze smart-contract at the bytecode level.<br/>
+              This app is actually used by a small amount of smart-contract auditors and devs for searching bug & optimizing code.
+            </p>
+            <LinkCard href="https://bytegraph.xyz">
+              <FontAwesomeIcon icon={faGlobe} />
+              Bytegraph
+            </LinkCard>
+          </SmallCard>
 
           <SmallCard title="Content-Hash">
             <p>
               JS implementation of the EIP-1577.<br/>
-              The npm package has 200,000 weekly downloads.<br/>
+              The npm package has 300k weekly downloads.<br/>
               It is used to encode ipfs hash into a format that can be stored by ENS resolvers.
             </p>
             <LinkCard href="https://www.npmjs.com/package/content-hash">
-              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faNpm} />
+              <FontAwesomeIcon icon={faNpm} />
               npm
             </LinkCard>
           </SmallCard>
@@ -306,7 +398,7 @@ const Home: NextPage = () => {
               The script is also able to find back transactions sender addresses.
             </p>
             <LinkCard href="https://github.com/pldespaigne/blk_parser">
-              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
+              <FontAwesomeIcon icon={faGithub} />
               Github
             </LinkCard>
           </SmallCard>
@@ -317,33 +409,35 @@ const Home: NextPage = () => {
             </p>
             <div className="flex flex-col gap-2">
               <LinkCard href="https://angry-banach-72cea3.netlify.app/">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
-                Demo 1
-              </LinkCard>
-              <LinkCard href="https://yeetgraph.com/list">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
-                Demo 2
+                <FontAwesomeIcon icon={faGlobe} />
+                Demo
               </LinkCard>
             </div>
           </SmallCard>
 
-          <SmallCard title="React 3D Virtual Meetings">
+          <SmallCard title="3D Virtual Meetings">
             <p>
-              Experimenting around gamified 3D meetings.
+              Experimenting around gamified in-browser 3D meetings.
             </p>
-            <LinkCard href="https://poc-astaree.web.app/">
-              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
-              Demo
-            </LinkCard>
+            <div className="flex flex-col gap-2">
+              <LinkCard href="https://poc-astaree.web.app/">
+                <FontAwesomeIcon icon={faGlobe} />
+                Demo 1
+              </LinkCard>
+              <LinkCard href="https://astaree-v3.vercel.app/">
+                <FontAwesomeIcon icon={faGlobe} />
+                Demo 2
+              </LinkCard>
+            </div>
           </SmallCard>
         </section>
 
-        <section className="mt-32 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
-          <h2 className="font-bold text-4xl text-gray-800 md:col-span-4">Misc.</h2>
+        <section className="mt-32 grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 px-8 md:px-32">
+          <h2 className="z-0 font-bold text-4xl text-slate-900 md:col-span-4 underline underline-offset-8 decoration-1 decoration-yellow-600">Misc.</h2>
           <SmallCard title="Ethers.js">
             <p>I contributed in finding, investigating and reporting bugs.</p>
             <LinkCard href="https://github.com/ethers-io/ethers.js/issues?q=is%3Aissue+author%3Apldespaigne+is%3Aclosed">
-              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGlobe} />
+              <FontAwesomeIcon icon={faGlobe} />
               Github Issues
             </LinkCard>
           </SmallCard>
@@ -355,11 +449,11 @@ const Home: NextPage = () => {
             </p>
             <div className="flex flex-col gap-2">
               <LinkCard href="https://docs.google.com/presentation/d/1YfFIpHYU_o4eA-_SeFXzzT4kawB6yMCmCRjB_p4bvyE/edit?usp=sharing">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGoogleDrive} />
+                <FontAwesomeIcon icon={faGoogleDrive} />
                 Presentation
               </LinkCard>
               <LinkCard href="https://github.com/blockframes/graphql-demo">
-                <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
+                <FontAwesomeIcon icon={faGithub} />
                 Demo Repo
               </LinkCard>
             </div>
@@ -368,26 +462,26 @@ const Home: NextPage = () => {
           <SmallCard title="Resume">
             <p>This site is made with Next.js and Tailwind.css</p>
             <LinkCard href="https://github.com/pldespaigne/next-page">
-              <FontAwesomeIcon className="mr-2 inline w-4 mb-1" icon={faGithub} />
+              <FontAwesomeIcon icon={faGithub} />
               Github
             </LinkCard>
           </SmallCard>
 
         </section>
 
-        <section className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
-          <h2 className="font-bold text-4xl text-gray-800 md:col-span-2">Education</h2>
+        <section className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 px-8 md:px-32">
+          <h2 className="z-0 font-bold text-4xl text-slate-900 md:col-span-2 underline underline-offset-8 decoration-1 decoration-yellow-600">Education</h2>
           
-          <div className="p-6 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 filter drop-shadow-xl text-gray-400 flex flex-col justify-between gap-6">
+          <div className="p-6 rounded-lg bg-gradient-to-br from-slate-800 to-slate-900 filter drop-shadow-xl text-slate-400 flex flex-col justify-between gap-6">
             <h2 className="text-xl font-semibold">
-              <span className="text-yellow-300">Master Degree</span> - <span className="text-gray-300">Computer Science & Web Technologies</span>
+              <span className="text-yellow-300 text-glow">Master Degree</span> - <span className="text-slate-300">Computer Science & Web Technologies</span>
             </h2>
             <p>University of Lyon</p>
           </div>
         </section>
 
-        <footer className="mt-32 flex flex-row justify-center">
-          <h2 ref={endText} className="text-gray-900 font-bold text-4xl text-center md:text-left">You reached the end 🙌</h2>
+        <footer className="mt-32 flex flex-row justify-center px-8 md:px-32">
+          <h2 ref={endText} className="z-0 text-slate-900 font-bold text-4xl text-center md:text-left">You reached the end 🙌</h2>
         </footer>
       </main>
     </>
