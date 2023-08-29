@@ -207,7 +207,7 @@ const Home: NextPage = () => {
                 <FontAwesomeIcon icon={faGlobe} />
                 NFT VOD
               </LinkCard>,
-              <LinkCard key={2} href="https://www.archipelmarket.com/">
+              <LinkCard key={3} href="https://www.archipelmarket.com/">
               <FontAwesomeIcon icon={faGlobe} />
                 Main web2 app
               </LinkCard>,
