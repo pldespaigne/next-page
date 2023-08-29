@@ -13,7 +13,7 @@ import Card from './components/Card';
 import Chips from './components/Chips';
 import LinkCard from './components/LinkCard';
 import SmallCard from './components/SmallCard';
-import { GameOfLife } from './components/GameOfLife';
+import GameOfLife from './components/GameOfLife';
 
 
 const Home: NextPage = () => {

@@ -56,7 +56,7 @@ function gameOfLife(canvas: HTMLCanvasElement) {
 
 interface GameOfLifeProps {};
 
-export const GameOfLife: FunctionComponent<GameOfLifeProps> = props => {
+const GameOfLife: FunctionComponent<GameOfLifeProps> = props => {
 
   useEffect(() => {
     const c = document.getElementById('gol-canvas') as HTMLCanvasElement;
@@ -73,3 +73,6 @@ export const GameOfLife: FunctionComponent<GameOfLifeProps> = props => {
     <canvas id="gol-canvas" className="absolute inset-0 w-full h-full" />
   );
 };
+
+
+export default GameOfLife;
