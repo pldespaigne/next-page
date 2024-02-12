@@ -3,8 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { NextPage } from 'next';
 import { Inter } from 'next/font/google';
-import { BlocksIcon, BoxesIcon, BriefcaseIcon, CircleUserIcon, CircleUserRoundIcon, ClockIcon, ContainerIcon, FileStackIcon, GithubIcon, GlobeIcon, GraduationCapIcon, HandshakeIcon, MailsIcon, MapPinIcon, TerminalIcon, TerminalSquareIcon, ToyBrickIcon, TwitterIcon } from 'lucide-react';
-import GameOfLife from './components/GameOfLife';
+import { BlocksIcon, BriefcaseIcon, CircleUserIcon, ClockIcon, GithubIcon, GlobeIcon, GraduationCapIcon, HandshakeIcon, MailsIcon, MapPinIcon, TerminalSquareIcon, TwitterIcon } from 'lucide-react';
 
 
 const inter = Inter({ subsets: ['latin'] });
