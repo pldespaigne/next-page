@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] });
 const CV: NextPage = () => {
 
   return(
-    <main className={'flex bg-red-200 justify-center ' + inter.className}>
+    <main className={'flex bg-slate-900 justify-center ' + inter.className}>
       <section className="relative flex flex-col bg-slate-700 px-10 py-12" style={{ width: 310, maxWidth: 310 }}>
         <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={230} height={230} />
         <div className="mt-6">
