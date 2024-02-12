@@ -183,7 +183,7 @@ const Home: NextPage = () => {
           <Card
             company="Cascade8"
             role="Senior Full-Stack Developer (Full time)"
-            duration={<>mid 2019 - Jan 2022 (2,5 years) &<br/>Feb 2023 - now (7 months)</>}
+            duration={<>mid 2019 - Jan 2022 (2,5 years) &<br/>Feb 2023 - March 2024 (13 months)</>}
             body={
               <p>
                 I joined this remote team at creation, we built regular web2 apps. I worked on front, back, ops, features and architecture design.
@@ -476,7 +476,7 @@ const Home: NextPage = () => {
             <h2 className="text-xl font-semibold">
               <span className="text-yellow-300 text-glow">Master Degree</span> - <span className="text-slate-300">Computer Science & Web Technologies</span>
             </h2>
-            <p>University of Lyon</p>
+            <p>University of Lyon 1</p>
           </div>
         </section>
 
