@@ -14,7 +14,7 @@ const CV: NextPage = () => {
   return(
     <main className={'flex bg-slate-900 justify-center ' + inter.className}>
       <section className="relative flex flex-col bg-slate-700 px-10 py-12" style={{ width: 310, maxWidth: 310 }}>
-        <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={230} height={230} />
+        <Image className="rounded-full" src="/images/profile-pic_3.jpg" alt="a picture of me" width={230} height={230} />
         <div className="mt-6">
           <h2 className="font-mono italic text-2xl text-slate-50 text-center flex justify-center items-center gap-2 mb-3"><CircleUserIcon/><span>Info</span></h2>
           <div className="flex items-center gap-3 text-slate-300">

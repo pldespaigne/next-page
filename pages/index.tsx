@@ -90,7 +90,7 @@ const Home: NextPage = () => {
 
           <div className="flex flex-col items-center w-full md:w-auto md:flex-row gap-8 md:backdrop-blur-sm md:border md:border-t-slate-600 md:border-l-slate-600 md:border-b-slate-700 md:border-r-slate-700 md:rounded-xl px-4 md:px-16 pt-4 md:py-10 md:mx-4 md:shadow-2xl">
             <div className="relative">
-              <Image className="rounded-full" src="/images/profile-pic.jpg" alt="a picture of me" width={300} height={300} />
+              <Image className="rounded-full" src="/images/profile-pic_3.jpg" alt="a picture of me" width={300} height={300} />
               <div className="absolute z-0 bottom-0 left-0 text-center text-slate-400">
                 <FontAwesomeIcon className="text-xl inline w-4" icon={faMapMarkerAlt} />
                 <p className="">France</p>
