@@ -4,7 +4,6 @@ import Image from 'next/image';
 import type { NextPage } from 'next';
 import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faGlobe, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faGoogleDrive, faLinkedin, faNpm, faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -147,14 +146,6 @@ const Home: NextPage = () => {
                 >
                   <FontAwesomeIcon icon={faLinkedin} size="xl" />
                 </motion.a>
-                {/* <motion.a
-                  // TODO
-                  className="border border-yellow-600 flex p-2 rounded-md shadow-lg"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <FontAwesomeIcon icon={faFilePdf} size="xl" />
-                </motion.a> */}
               </div>
             </div>
           </div>
